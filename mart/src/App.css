@@ -36,3 +36,37 @@
     transform: rotate(360deg);
   }
 }
+
+.green{
+  background-color: #009879;
+  color: #ffffff;
+  text-align: center;
+}
+
+.white{
+  color: #009879;
+  background-color: #ffffff;
+  text-align: center;
+}
+
+.signinupbtn{
+  box-shadow: 0 0 0 #eee; 
+  border-radius: 20px;
+  color: #009879;
+  background: #fff;
+  min-width: 120px;
+}
+
+.logincrt{
+    box-shadow: 0 0 0 #eee; 
+    border-radius: 20px;
+    background: #009879;
+    color: #fff;
+    min-width: 200px;
+}
+
+.frgtpswdbtn{
+  box-shadow: 0 0 0 #009879; 
+  border-radius: 20px;
+  background: #fff;
+}
