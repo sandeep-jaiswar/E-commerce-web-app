@@ -1,4 +1,8 @@
+import { connect } from "react-redux";
+
+
 function Login(props){
+
     return (
         <div className="row" >
             <div style={{height:"100vh"}}  className="green col-sm-4">
@@ -29,4 +33,7 @@ function Login(props){
         </div>
     )
 }
-export default Login;
+
+
+
+export default connect() (Login);

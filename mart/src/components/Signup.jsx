@@ -1,3 +1,10 @@
+import { connect } from "react-redux";
+
+const mapStateToProp = (state) =>{
+    console.log(state);
+    return state;
+}
+
 function Signup(props){
     return (
         <div className="row" style={{height:"100vh"}}>
@@ -24,4 +31,4 @@ function Signup(props){
         </div>
     )
 }
-export default Signup;
+export default connect(mapStateToProp) (Signup);

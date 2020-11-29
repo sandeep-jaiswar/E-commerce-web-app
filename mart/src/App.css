@@ -70,3 +70,13 @@
   border-radius: 20px;
   background: #fff;
 }
+
+.bottom0 {
+  position: fixed;
+  bottom: 0; 
+  margin-left: 1%;
+}
+
+.left0{
+  left: 0; 
+}
