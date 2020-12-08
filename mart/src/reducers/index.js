@@ -1,35 +1,33 @@
 import { combineReducers } from "redux";
 
-//reducer
-export const userHistory = (oldListOfUser=[],action) =>{
-  switch (action.type) {
-    case 'CREATE_USER':
-      return [...oldListOfUser,action.payload];
-    case 'DELETE_USER':
-      return oldListOfUser.filter(e => e===action.payload);
-    default:
-      return oldListOfUser;
-  }
-  }
-
-const oldListOfUser =() => {
-  return [
-    { name : 'sandeep', type :'admin', pass : 'pass'},
-    { name : 'deepa', type :'customer', pass : 'pass'}
-  ]
+const initialState={
+    loggedInUser : null,
+    usersList : []
 }
 
-const loggedInUserReducer =(loggedInUser=null,action) => {
+//reducer
+export const usersListReducer = (state=initialState.usersList,action) =>{
+  switch (action.type) {
+    case 'CREATE_USER':
+      return [...state,action.payload];
+    case 'DELETE_USER':
+      return state.filter(e => e===action.payload);
+    default:
+      return state;
+  }
+}
+
+const userLoggedInReducer =(state=initialState.loggedInUser,action) => {
   switch (action.type) {
     case 'LOGGEDIN_USER':
       return action.payload
     default:
-      return loggedInUser;
+      return state;
   }
 }
 
 export default combineReducers({
-    activeUserList : oldListOfUser,
-    currentUser: loggedInUserReducer
+  loggedInUser: userLoggedInReducer,
+  usersList:usersListReducer
 }) 
 

@@ -1,5 +1,5 @@
 // import { event } from 'jquery';
-import { useState } from 'react';
+import { useState,useContext  } from 'react';
 import { BrowserRouter, Route, Link,Switch } from "react-router-dom";
 import Cart from "../cart/cart";
 import Home from "../home/home";
@@ -7,9 +7,12 @@ import Account from "../myAccount/account";
 import Order from "../order/order";
 import Payment from "../payment/payment";
 import Product from "../product/product";
+import {UserContext} from "../../UserContext";
 // import { Grid, Menu, Segment } from 'semantic-ui-react';
 
 function Dashboard(){
+
+    const {user} = useContext(UserContext);
     const [activeItem,setActiveItem]=useState('bio');
     function handleItemClick(e,name){
         setActiveItem(name);

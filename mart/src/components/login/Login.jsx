@@ -1,7 +1,18 @@
-import { connect } from "react-redux";
-
+import { useState } from 'react';
+import { Link } from "react-router-dom";
+import { useSelector } from 'react-redux';
 
 function Login(props){
+    const [name, setName]=useState('');
+    const [pass, setPass]=useState('');
+    function signinClicked(e){
+        e.preventDefault();
+        console.log(name);
+        props.setUser({
+            name: name,
+            pass : pass
+        })
+    }
 
     return (
         <div className="row" >
@@ -10,7 +21,9 @@ function Login(props){
                 <h4>Hello Friend</h4><br/>
                 <h6>Enter your personal Info</h6><br/>
                 <h6>to start your journey with us</h6><br/>
-                <button className="signinupbtn" onClick={()=>props.callview(false)} type="button"> Sign Up </button>
+                <Link to="/signup">
+                    <button className="signinupbtn" type="button"> Sign Up </button>
+                </Link>
                 </div>
             </div>
             <div style={{height:"100vh"}} className="white col-sm-8">
@@ -22,9 +35,9 @@ function Login(props){
                     <i className="fal fa-circle"></i>
                     </div><br/>
                     {/* <h6>or use your email for regiistration</h6> */}
-                    <form onSubmit={props.signupClicked}>
-                        <input placeholder="name"/><br/><br/>
-                        <input placeholder="password"/><br/><br/>
+                    <form onSubmit={signinClicked}>
+                        <input value={name} onChange={e=>setName(e.target.value)} placeholder="name"/><br/><br/>
+                        <input value={pass} onChange={e=>setPass(e.target.value)} placeholder="password"/><br/><br/>
                         <button className="frgtpswdbtn">forgot password?</button><br/><br/>
                         <button className="logincrt" type="submit">Sign In</button>
                     </form>
@@ -36,4 +49,4 @@ function Login(props){
 
 
 
-export default connect() (Login);
+export default Login;

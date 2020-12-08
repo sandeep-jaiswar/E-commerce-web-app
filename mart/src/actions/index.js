@@ -1,29 +1,30 @@
 //action creators
-export const createUser = (name,pass,type) =>{
+export const createUser = (user) =>{
     return {
       type: "CREATE_USER",
       payload:{
-        "name": name,
-        "pass": pass,
-        "type":type
+        "name": user.name,
+        "pass": user.pass,
       }
     }
   }
   
-export  const deleteUser = (name,pass) =>{
+export  const deleteUser = (user) =>{
     return {
       type: "DELETE_USER",
       payload:{
-        "name": name,
-        "pass": pass
+        "name": user.name,
+        "pass": user.pass
       }
     }
   }
 
-export const loggedInUser = user =>{
+export const userLoggedIn = user =>{
   return {
-    type: "LOGGEDIN_USER",
-    payload:user
+    type: "USER_LOGGEDIN",
+    payload:{
+      name: user.name
+    }
   }
 }
   
