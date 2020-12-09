@@ -15,15 +15,7 @@ function App() {
   const store =Store();
   const [user,setUser]=useState({});
   const unsubscribe = store.subscribe(()=>console.log(store.getState()));
-  store.dispatch(userLoggedIn({name: 'sandeep'}));
-  const [viewLogin,setViewLogin]=useState(true);
-  function callview(flag){
-    setViewLogin(flag);
-  }
-
-  
-
-  
+  store.dispatch(userLoggedIn({email: 'sandeep'}));
 
   return (
     <div className="container-fluid">

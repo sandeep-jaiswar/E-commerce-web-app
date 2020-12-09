@@ -3,13 +3,12 @@ import { Link } from "react-router-dom";
 import { useSelector } from 'react-redux';
 
 function Login(props){
-    const [name, setName]=useState('');
+    const [email, setEmail]=useState('');
     const [pass, setPass]=useState('');
     function signinClicked(e){
         e.preventDefault();
-        console.log(name);
         props.setUser({
-            name: name,
+            email: email,
             pass : pass
         })
     }
@@ -28,15 +27,15 @@ function Login(props){
             </div>
             <div style={{height:"100vh"}} className="white col-sm-8">
                 <div style={{paddingTop:"20%"}}>
-                    <h3>Sign Into Mart</h3><br/>
+                    <h3>Sign Into Mart</h3>
+                    <h6>using</h6>
                     <div>
-                    <i className="fal fa-circle"></i>
-                    <i className="fal fa-circle"></i>
-                    <i className="fal fa-circle"></i>
+                    <img style={{marginRight:'2%',cursor :'pointer'}}src="google.png" />
+                    <img style={{cursor :'pointer'}} src="facebook.png" />
                     </div><br/>
-                    {/* <h6>or use your email for regiistration</h6> */}
+                    <h6>or use your registered email</h6>
                     <form onSubmit={signinClicked}>
-                        <input value={name} onChange={e=>setName(e.target.value)} placeholder="name"/><br/><br/>
+                        <input value={email} onChange={e=>setEmail(e.target.value)} placeholder="email"/><br/><br/>
                         <input value={pass} onChange={e=>setPass(e.target.value)} placeholder="password"/><br/><br/>
                         <button className="frgtpswdbtn">forgot password?</button><br/><br/>
                         <button className="logincrt" type="submit">Sign In</button>

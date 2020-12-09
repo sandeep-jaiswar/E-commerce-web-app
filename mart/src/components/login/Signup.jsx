@@ -3,18 +3,17 @@ import { Link } from "react-router-dom";
 import { createUser } from "../../actions";
 
 function Signup(props){
-    const [name, setName]=useState('');
+    const [email, setEmail]=useState('');
     const [pass, setPass]=useState('');
     const [repass, setRepass]=useState('');
     function signupClicked(e){
         e.preventDefault();
-        console.log(name);
         props.store.dispatch(createUser({
-            name: name,
+            email: email,
             pass: pass
         }));
         props.setUser({
-            name: name,
+            email: email,
             pass : pass
         })
     }
@@ -23,9 +22,15 @@ function Signup(props){
         <div className="row" style={{height:"100vh"}}>
             <div className="white col-sm-8">
                 <div style={{paddingTop:"20%",margin:"auto auto"}} >
-                    <h3>Create Account</h3><br/>
+                    <h3>Create Account</h3>
+                    <h6>using</h6>
+                    <div>
+                    <img style={{marginRight:'2%',cursor :'pointer'}}src="google.png" />
+                    <img style={{cursor :'pointer'}} src="facebook.png" />
+                    </div><br/>
+                    <h6>or use your email for registration</h6>
                     <form onSubmit={signupClicked}>
-                        <input type="text" value={name} onChange={e=>setName(e.target.value)}  placeholder="name"/><br/><br/>
+                        <input type="text" value={email} onChange={e=>setEmail(e.target.value)}  placeholder="email"/><br/><br/>
                         <input type="text" value={pass} onChange={e=>setPass(e.target.value)}  placeholder="password"/><br/><br/>
                         <input type="text" value={repass} onChange={e=>setRepass(e.target.value)}  placeholder="confirm password"/><br/><br/>
                         <button className="frgtpswdbtn" >forgot password?</button><br/><br/>
