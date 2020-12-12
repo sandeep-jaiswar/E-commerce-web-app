@@ -21,43 +21,44 @@ function Dashboard(){
     return (
         <BrowserRouter>
             <div className="row">
-                <div className="col-sm-1">
-                    <div className="d-flex flex-column" style={{height: "100vh"}}>
+                <div className="col-sm-1" style={{margin:'inherit',backgroundColor: '#f5f5f5'}}>
+                <div className="d-flex flex-column" style={{height: "100vh"}}>
                         <div className="p-2 left0"> 
-                            <Link  to="/home" >
+                            <Link  to="/dashboard/home" >
                                 <img sizes="16x16" style={{ height: "50px",cursor : "pointer"}} src="home.png"/>
                             </Link>
                         </div>
                         <div className="p-2 left0" style={{ marginTop: "15%"}}>
-                            <Link to="/orders">
+                            <Link to="/dashboard/orders">
                                 <img sizes="16x16"  style={{ height: "50px",cursor : "pointer"}} src="order.png"/>
                             </Link>
                         </div>
                         <div className="p-2 left0" style={{ marginTop: "15%"}}>
-                            <Link to="/cart">
+                            <Link to="/dashboard/cart">
                                 <img sizes="16x16" style={{ height: "50px",cursor : "pointer"}} src="bag.png"/>
                             </Link>
                         </div>
                         <div className="p-2 left0" style={{ marginTop: "15%"}}>
-                            <Link to="/payment">
+                            <Link to="/dashboard/payment">
                                 <img sizes="16x16"  style={{ height: "50px",cursor : "pointer"}} src="payment.png"/>
                             </Link>
                         </div>
-                        <div className="p-2 bottom0 left0">
-                            <Link to="/account">
+                        <div className="p-2 left0" style={{ marginTop: "15%"}}>
+                            <Link to="/dashboard/account">
                                 <img sizes="16x16" style={{ height: "50px",cursor : "pointer"}} src="account.png"/>
                             </Link>
                         </div>
                     </div>
                 </div>
-                <div className="col-sm-11">
-                    <div className="well well-sm" style={{backgroundColor: '#f5f5f5'}}>
+                <div className="col-sm-11" style={{padding:'0'}}>
+                    <div className="well well-sm" style={{backgroundColor: '#f5f5f5',minHeight:'100vh' }}>
                         <Switch>
-                            <Route exact path="/home" render={() => <Home/>}/>
-                            <Route exact path="/orders" render={() => <Order/>}/>
-                            <Route exact path="/cart" render={() => <Cart/>}/>
-                            <Route exact path="/payment" render={() => <Payment/>}/>
-                            <Route exact path="/account" render={() => <Account/>}/>
+                            <Route exact path="/dashboard" render={() => <Home/>}/>
+                            <Route exact path="/dashboard/home" render={() => <Home/>}/>
+                            <Route exact path="/dashboard/orders" render={() => <Order/>}/>
+                            <Route exact path="/dashboard/cart" render={() => <Cart/>}/>
+                            <Route exact path="/dashboard/payment" render={() => <Payment/>}/>
+                            <Route exact path="/dashboard/account" render={() => <Account/>}/>
                         </Switch>
                     </div>
                 </div>

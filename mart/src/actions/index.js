@@ -1,30 +1,21 @@
+import { userConstants } from "../constants/user.constants";
+
 //action creators
 export const createUser = (user) =>{
     return {
-      type: "CREATE_USER",
+      type: userConstants.REGISTER_REQUEST,
       payload:{
         "email": user.email,
         "pass": user.pass,
       }
     }
   }
-  
-export  const deleteUser = (user) =>{
-    return {
-      type: "DELETE_USER",
-      payload:{
-        "email": user.email,
-        "pass": user.pass
-      }
-    }
-  }
 
-export const userLoggedIn = user =>{
+export const loginUser = (user) =>{
   return {
-    type: "USER_LOGGEDIN",
+    type: userConstants.LOGIN_REQUEST,
     payload:{
-      email: user.email
+      "email": user.email,
     }
   }
 }
-  

@@ -1,33 +1,34 @@
 import { combineReducers } from "redux";
-
+import { userConstants } from "../constants/user.constants";
 const initialState={
-    loggedInUser : null,
-    usersList : []
+    usersList : [],
+    currentUser : null
 }
 
 //reducer
-export const usersListReducer = (state=initialState.usersList,action) =>{
+export const userActionReducer = (state=initialState.usersList,action) =>{
   switch (action.type) {
-    case 'CREATE_USER':
-      return [...state,action.payload];
-    case 'DELETE_USER':
-      return state.filter(e => e===action.payload);
+    case userConstants.REGISTER_REQUEST:
+      return [...state,action.payload]
     default:
-      return state;
+      return [...state];
   }
 }
 
-const userLoggedInReducer =(state=initialState.loggedInUser,action) => {
+export const userLoginReducer = (state=initialState.currentUser,action) =>{
   switch (action.type) {
-    case 'LOGGEDIN_USER':
-      return action.payload
+    case userConstants.LOGIN_REQUEST:
+      if(initialState.usersList.filter(e => e.email===action.payload.email)){
+        return action.payload.email
+      }
+      return state;
     default:
       return state;
   }
 }
 
 export default combineReducers({
-  loggedInUser: userLoggedInReducer,
-  usersList:usersListReducer
+  usersList:userActionReducer,
+  currentUser:userLoginReducer
 }) 
 
