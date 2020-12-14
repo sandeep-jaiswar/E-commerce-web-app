@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { createUser,loginUser } from "../../actions";
 import { useSelector,useDispatch } from 'react-redux';
 import { useHistory } from 'react-router';
+import axios from 'axios';
 
 function Signup(props){
     const dispatch = useDispatch();
@@ -22,6 +23,7 @@ function Signup(props){
         dispatch(loginUser({
             email: email,
         }));
+        
         console.log(props);
         history.push('/dashboard');
         // if(props.currentUser!=null){

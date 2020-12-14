@@ -2,7 +2,7 @@
 import { useState,useContext  } from 'react';
 import { BrowserRouter, Route, Link,Switch } from "react-router-dom";
 import Cart from "../cart/cart";
-import Home from "../home/home";
+import Home from "../home/Home";
 import Account from "../myAccount/account";
 import Order from "../order/order";
 import Payment from "../payment/payment";
@@ -51,7 +51,7 @@ function Dashboard(){
                     </div>
                 </div>
                 <div className="col-sm-11" style={{padding:'0'}}>
-                    <div className="well well-sm" style={{backgroundColor: '#f5f5f5',minHeight:'100vh' }}>
+                    <div className="well well-sm" style={{backgroundColor: '#f5f5f5' }}>
                         <Switch>
                             <Route exact path="/dashboard" render={() => <Home/>}/>
                             <Route exact path="/dashboard/home" render={() => <Home/>}/>
